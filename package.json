@@ -1,0 +1,52 @@
+{
+  "name": "dialtone",
+  "type": "module",
+  "version": "0.0.26",
+  "packageManager": "pnpm@9.1.1",
+  "description": "Dialtone Typescript SDK",
+  "author": "Anneal",
+  "license": "Apache-2.0",
+  "homepage": "https://usedialtone.com/",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint .",
+    "prepublishOnly": "pnpm build",
+    "release": "npm publish --access public",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.17.0",
+    "@types/node": "^20.12.11",
+    "eslint": "^9.2.0",
+    "lint-staged": "^15.2.2",
+    "pnpm": "^9.1.0",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.4.5",
+    "unbuild": "^2.0.0",
+    "vite": "^5.2.11",
+    "vitest": "^1.6.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
